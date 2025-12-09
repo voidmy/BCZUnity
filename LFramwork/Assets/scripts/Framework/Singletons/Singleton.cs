@@ -1,4 +1,7 @@
-public class Singleton<T> where T : class, new()
+using Framework;
+using QFramework;
+
+public class Singleton<T> where T : class,ITSingleton 
 {
     private static T instance;
 
@@ -8,7 +11,7 @@ public class Singleton<T> where T : class, new()
         {
             if (instance == null)
             {
-                instance = new T();
+                instance = SingletonCreator.CreateSingleton<T>();
             }
             return instance;
         }

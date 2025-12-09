@@ -1,23 +1,24 @@
 using System;
 using System.Collections.Generic;
+using Framework;
 using UnityEngine;
 
 /**
- * ÊÂ¼þÏµÍ³»ùÀà
- * Ìá¹©ÁËÊÂ¼þµÄ×¢²á¡¢´¥·¢ºÍ×¢Ïú¹¦ÄÜ
- * ËùÓÐÊÂ¼þ¶¼´æ´¢Îª¾²Ì¬±äÁ¿£¬·½±ãÈ«¾Ö·ÃÎÊ
+ * ï¿½Â¼ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½
+ * ï¿½á¹©ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½×¢ï¿½á¡¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½æ´¢Îªï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½Ö·ï¿½ï¿½ï¿½
  */
-public class EventSystemBase:Singleton<EventSystemBase>
+public class EventSystemBase:Singleton<EventSystemBase>, ITSingleton
 {
     /**
-     * ¾²Ì¬×Öµä£¬´æ´¢ËùÓÐÊÂ¼þ¼°Æä¶ÔÓ¦µÄ»Øµ÷º¯Êý
+     * ï¿½ï¿½Ì¬ï¿½Öµä£¬ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½
      */
     protected static Dictionary<string, Action<object>> events = new Dictionary<string, Action<object>>();
 
     /**
-     * ×¢²áÊÂ¼þ
-     * @param eventName ÊÂ¼þÃû³Æ
-     * @param callback ÊÂ¼þ´¥·¢Ê±µ÷ÓÃµÄ»Øµ÷º¯Êý
+     * ×¢ï¿½ï¿½ï¿½Â¼ï¿½
+     * @param eventName ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param callback ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ÃµÄ»Øµï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public static void RegisterEvent(string eventName, Action<object> callback)
     {
@@ -29,9 +30,9 @@ public class EventSystemBase:Singleton<EventSystemBase>
     }
 
     /**
-     * ´¥·¢ÊÂ¼þ
-     * @param eventName ÊÂ¼þÃû³Æ
-     * @param data ´«µÝ¸ø»Øµ÷º¯ÊýµÄÊý¾Ý
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
+     * @param eventName ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param data ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public static void TriggerEvent(string eventName, object data)
     {
@@ -42,9 +43,9 @@ public class EventSystemBase:Singleton<EventSystemBase>
     }
 
     /**
-     * ×¢ÏúÊÂ¼þ
-     * @param eventName ÊÂ¼þÃû³Æ
-     * @param callback Òª×¢ÏúµÄ»Øµ÷º¯Êý
+     * ×¢ï¿½ï¿½ï¿½Â¼ï¿½
+     * @param eventName ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param callback Òª×¢ï¿½ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public static void UnregisterEvent(string eventName, Action<object> callback)
     {
@@ -52,5 +53,10 @@ public class EventSystemBase:Singleton<EventSystemBase>
         {
             events[eventName] -= callback;
         }
+    }
+
+    public void OnSingletonInit()
+    {
+        
     }
 }

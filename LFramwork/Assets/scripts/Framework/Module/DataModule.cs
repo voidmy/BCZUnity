@@ -1,8 +1,10 @@
-using System;
-using System.IO;
-using UnityEngine;
 
-public class Module<T> : Singleton<T> where T : class, new()
+
+
+
+using Framework;
+
+public class Module<T> : Singleton<T> where T : class ,ITSingleton
 {
     protected string dataPath; // ���ݴ洢·��
 

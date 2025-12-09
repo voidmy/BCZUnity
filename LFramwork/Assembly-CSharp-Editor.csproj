@@ -41,9 +41,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.collab-proxy@2.10.2/Lib/Editor/Unity.Plastic.Newtonsoft.Json.dll" />
-    <Analyzer Include="/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.collab-proxy@2.10.2/Lib/Editor/log4netPlastic.dll" />
-    <Analyzer Include="/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.collab-proxy@2.10.2/Lib/Editor/Unity.Plastic.Antlr3.Runtime.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -310,9 +307,6 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.collab-proxy@2.10.2/Lib/Editor/unityplastic.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.collab-proxy@2.10.2/Lib/Editor/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -324,6 +318,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.collab-proxy@2.10.2/Lib/Editor/unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
@@ -733,11 +730,20 @@
     <Reference Include="Unity.Burst">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
     </Reference>
+    <Reference Include="UniTask.TextMeshPro">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.DOTween">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Addressables">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.Addressables.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
@@ -759,6 +765,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Linq">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.Linq.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
@@ -810,6 +819,9 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>

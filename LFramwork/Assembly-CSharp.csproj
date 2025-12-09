@@ -41,24 +41,40 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.collab-proxy@2.10.2/Lib/Editor/Unity.Plastic.Newtonsoft.Json.dll" />
-    <Analyzer Include="/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.collab-proxy@2.10.2/Lib/Editor/log4netPlastic.dll" />
-    <Analyzer Include="/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/PackageCache/com.unity.collab-proxy@2.10.2/Lib/Editor/Unity.Plastic.Antlr3.Runtime.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/scripts/Framework/game/GameCenter.cs" />
+    <Compile Include="Assets/scripts/Framework/Singletons/SingletonProperty.cs" />
     <Compile Include="Assets/scripts/Framework/UI/UILayer.cs" />
+    <Compile Include="Assets/scripts/Framework/Singletons/SingletonCreator.cs" />
     <Compile Include="Assets/scripts/Framework/Singletons/Singleton.cs" />
+    <Compile Include="Assets/scripts/Framework/Pool/SimpleObjectPool.cs" />
     <Compile Include="Assets/scripts/Framework/Module/DataModule.cs" />
+    <Compile Include="Assets/scripts/Framework/Factory/CustomObjectFactory.cs" />
+    <Compile Include="Assets/scripts/Framework/Factory/DefaultObjectFactory.cs" />
+    <Compile Include="Assets/scripts/Framework/Singletons/ITSingleton.cs" />
     <Compile Include="Assets/scripts/Config/GameSetting.cs" />
-    <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
-    <Compile Include="Assets/scripts/Lunch.cs" />
+    <Compile Include="Assets/scripts/Framework/Pool/SafeObjectPool.cs" />
+    <Compile Include="Assets/scripts/Launch.cs" />
+    <Compile Include="Assets/scripts/Framework/Tool/UIPageControllerEditor.cs" />
+    <Compile Include="Assets/scripts/Framework/Pool/PoolableObject.cs" />
     <Compile Include="Assets/scripts/Framework/UI/WindowBase.cs" />
+    <Compile Include="Assets/scripts/Framework/Factory/IObjectFactory.cs" />
     <Compile Include="Assets/scripts/Config/GameConfig.cs" />
     <Compile Include="Assets/scripts/Framework/Event/EventSystemBase.cs" />
+    <Compile Include="Assets/scripts/Framework/Factory/ObjectFactory.cs" />
+    <Compile Include="Assets/scripts/Framework/Tool/UIPageController.cs" />
+    <Compile Include="Assets/scripts/Framework/Pool/IPoolType.cs" />
     <Compile Include="Assets/scripts/Framework/Module/RankModule.cs" />
+    <Compile Include="Assets/scripts/Framework/Load/IResourceLoader.cs" />
+    <Compile Include="Assets/scripts/Framework/Pool/IPool.cs" />
+    <Compile Include="Assets/scripts/Framework/Atlas/AtlasMgr.cs" />
+    <Compile Include="Assets/scripts/Framework/Pool/Pool.cs" />
+    <Compile Include="Assets/scripts/Framework/Pool/IPoolable.cs" />
+    <Compile Include="Assets/scripts/Framework/Load/ResourceLoader.cs" />
+    <Compile Include="Assets/scripts/Framework/Factory/NonPublicObjectFactory.cs" />
     <None Include="Assets/scripts/test.json" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -696,11 +712,20 @@
     <Reference Include="Unity.Burst">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
     </Reference>
+    <Reference Include="UniTask.TextMeshPro">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.DOTween">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Addressables">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.Addressables.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
@@ -722,6 +747,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Linq">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.Linq.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
@@ -773,6 +801,9 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UniTask.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
