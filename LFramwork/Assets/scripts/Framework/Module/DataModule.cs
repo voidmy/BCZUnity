@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Module<T> : Singleton<T> where T : class, new()
 {
-    protected string dataPath; // Êý¾Ý´æ´¢Â·¾¶
+    protected string dataPath; // ï¿½ï¿½ï¿½Ý´æ´¢Â·ï¿½ï¿½
 
-    // Çå³ýÊý¾Ý
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     protected void ClearData()
     {
-      
+      //
     }
 }
