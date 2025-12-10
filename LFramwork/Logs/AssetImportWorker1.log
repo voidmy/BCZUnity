@@ -2652,3 +2652,1856 @@ AssetImportParameters requested are different than current active one (requested
   custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
   custom:scripting/precompiled-assembly-types:Assembly-CSharp: f2ed7a60cb0d4db3944a1684bb511da1 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
   custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x113e25400 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x3100a8000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.189 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.799 seconds
+Domain Reload Profiling: 988ms
+	BeginReloadAssembly (62ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (16ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (99ms)
+		LoadAssemblies (113ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (10ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (799ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (195ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (28ms)
+			ProcessInitializeOnLoadAttributes (129ms)
+			ProcessInitializeOnLoadMethodAttributes (33ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5078 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (344.9 KB). Loaded Objects now: 5992.
+Memory consumption went from 307.5 MB to 307.2 MB.
+Total: 2.083875 ms (FindLiveObjects: 0.184959 ms CreateObjectMapping: 0.048958 ms MarkObjects: 1.745750 ms  DeleteObjects: 0.103833 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: f2ed7a60cb0d4db3944a1684bb511da1 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 6735.794194 seconds.
+  path: Assets/scripts/Test/RVODemo/RVODemoManager.cs
+  artifactKey: Guid(c62d21c6be0db493ebbe0a8eb66854ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/scripts/Test/RVODemo/RVODemoManager.cs using Guid(c62d21c6be0db493ebbe0a8eb66854ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'f30fdf375ae16017983ae4d9c528db5f') in 0.001499 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 230.240237 seconds.
+  path: Assets/scripts/Test/RVODemo/RVODemoManager.cs
+  artifactKey: Guid(c62d21c6be0db493ebbe0a8eb66854ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/scripts/Test/RVODemo/RVODemoManager.cs using Guid(c62d21c6be0db493ebbe0a8eb66854ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'f67e40068c926466a8828ff103d48882') in 0.000246 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x138504800 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x1300d8000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.191 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.713 seconds
+Domain Reload Profiling: 904ms
+	BeginReloadAssembly (57ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (13ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (105ms)
+		LoadAssemblies (109ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (9ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (714ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (169ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (25ms)
+			ProcessInitializeOnLoadAttributes (113ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (344.8 KB). Loaded Objects now: 5998.
+Memory consumption went from 311.5 MB to 311.2 MB.
+Total: 1.869584 ms (FindLiveObjects: 0.168000 ms CreateObjectMapping: 0.072250 ms MarkObjects: 1.525125 ms  DeleteObjects: 0.103834 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 41284d4e610ab57274ec55a2c782a869 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x12fec2800 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x1311a8000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.166 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.349 seconds
+Domain Reload Profiling: 515ms
+	BeginReloadAssembly (57ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (81ms)
+		LoadAssemblies (93ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (9ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (349ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (174ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (25ms)
+			ProcessInitializeOnLoadAttributes (116ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.0 KB). Loaded Objects now: 6003.
+Memory consumption went from 315.6 MB to 315.2 MB.
+Total: 1.990709 ms (FindLiveObjects: 0.164666 ms CreateObjectMapping: 0.046625 ms MarkObjects: 1.678792 ms  DeleteObjects: 0.099833 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 41284d4e610ab57274ec55a2c782a869 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x13fb63000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x151c88000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.167 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.337 seconds
+Domain Reload Profiling: 504ms
+	BeginReloadAssembly (58ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (15ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (81ms)
+		LoadAssemblies (93ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (9ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (337ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (175ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (27ms)
+			ProcessInitializeOnLoadAttributes (118ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.1 KB). Loaded Objects now: 6008.
+Memory consumption went from 319.7 MB to 319.3 MB.
+Total: 2.128500 ms (FindLiveObjects: 0.181542 ms CreateObjectMapping: 0.049958 ms MarkObjects: 1.776083 ms  DeleteObjects: 0.120375 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 41284d4e610ab57274ec55a2c782a869 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x12fb1be00 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x1486c0000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.178 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.365 seconds
+Domain Reload Profiling: 543ms
+	BeginReloadAssembly (55ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (13ms)
+	RebuildCommonClasses (13ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (96ms)
+		LoadAssemblies (98ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (20ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (9ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (365ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (176ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (27ms)
+			ProcessInitializeOnLoadAttributes (118ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.2 KB). Loaded Objects now: 6013.
+Memory consumption went from 323.8 MB to 323.5 MB.
+Total: 1.810291 ms (FindLiveObjects: 0.165375 ms CreateObjectMapping: 0.042125 ms MarkObjects: 1.499792 ms  DeleteObjects: 0.102416 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x32cca0800 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x1300f8000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.167 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.354 seconds
+Domain Reload Profiling: 522ms
+	BeginReloadAssembly (57ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (15ms)
+	RebuildCommonClasses (13ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (84ms)
+		LoadAssemblies (95ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (9ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (354ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (176ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (25ms)
+			ProcessInitializeOnLoadAttributes (117ms)
+			ProcessInitializeOnLoadMethodAttributes (29ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.0 KB). Loaded Objects now: 6018.
+Memory consumption went from 327.8 MB to 327.5 MB.
+Total: 2.073834 ms (FindLiveObjects: 0.174167 ms CreateObjectMapping: 0.042208 ms MarkObjects: 1.740917 ms  DeleteObjects: 0.116292 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x32d158800 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x330a10000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.195 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.586 seconds
+Domain Reload Profiling: 781ms
+	BeginReloadAssembly (60ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (15ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (107ms)
+		LoadAssemblies (111ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (21ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (9ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (586ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (171ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (26ms)
+			ProcessInitializeOnLoadAttributes (113ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.1 KB). Loaded Objects now: 6023.
+Memory consumption went from 331.9 MB to 331.5 MB.
+Total: 1.870542 ms (FindLiveObjects: 0.166417 ms CreateObjectMapping: 0.054750 ms MarkObjects: 1.549208 ms  DeleteObjects: 0.099583 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x34c9d4600 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x120ab0000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.168 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.354 seconds
+Domain Reload Profiling: 522ms
+	BeginReloadAssembly (58ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (82ms)
+		LoadAssemblies (95ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (10ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (354ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (177ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (26ms)
+			ProcessInitializeOnLoadAttributes (118ms)
+			ProcessInitializeOnLoadMethodAttributes (28ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.2 KB). Loaded Objects now: 6028.
+Memory consumption went from 335.9 MB to 335.6 MB.
+Total: 2.052417 ms (FindLiveObjects: 0.184917 ms CreateObjectMapping: 0.051708 ms MarkObjects: 1.715667 ms  DeleteObjects: 0.099625 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x12875c400 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x1486c0000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.178 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.350 seconds
+Domain Reload Profiling: 528ms
+	BeginReloadAssembly (56ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (94ms)
+		LoadAssemblies (96ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (20ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (9ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (350ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (174ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (27ms)
+			ProcessInitializeOnLoadAttributes (117ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.1 KB). Loaded Objects now: 6033.
+Memory consumption went from 339.8 MB to 339.5 MB.
+Total: 1.841166 ms (FindLiveObjects: 0.159291 ms CreateObjectMapping: 0.057250 ms MarkObjects: 1.529500 ms  DeleteObjects: 0.094708 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x113864a00 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x130640000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.168 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.342 seconds
+Domain Reload Profiling: 510ms
+	BeginReloadAssembly (56ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (84ms)
+		LoadAssemblies (95ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (11ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (342ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (183ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (32ms)
+			ProcessInitializeOnLoadAttributes (119ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.67 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (344.9 KB). Loaded Objects now: 6038.
+Memory consumption went from 343.9 MB to 343.5 MB.
+Total: 3.857375 ms (FindLiveObjects: 0.179333 ms CreateObjectMapping: 0.047875 ms MarkObjects: 3.521708 ms  DeleteObjects: 0.107917 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x1285b3000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x148700000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.165 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.359 seconds
+Domain Reload Profiling: 524ms
+	BeginReloadAssembly (56ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (80ms)
+		LoadAssemblies (91ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (10ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (359ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (182ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (26ms)
+			ProcessInitializeOnLoadAttributes (123ms)
+			ProcessInitializeOnLoadMethodAttributes (28ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.1 KB). Loaded Objects now: 6043.
+Memory consumption went from 347.8 MB to 347.5 MB.
+Total: 2.112500 ms (FindLiveObjects: 0.173333 ms CreateObjectMapping: 0.045125 ms MarkObjects: 1.789750 ms  DeleteObjects: 0.103750 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x32cbbb200 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x330048000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.168 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.366 seconds
+Domain Reload Profiling: 534ms
+	BeginReloadAssembly (57ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (83ms)
+		LoadAssemblies (93ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (11ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (366ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (186ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (31ms)
+			ProcessInitializeOnLoadAttributes (124ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (344.9 KB). Loaded Objects now: 6048.
+Memory consumption went from 351.8 MB to 351.5 MB.
+Total: 2.040042 ms (FindLiveObjects: 0.183167 ms CreateObjectMapping: 0.046541 ms MarkObjects: 1.706292 ms  DeleteObjects: 0.103709 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x13fed2e00 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x149780000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.172 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.368 seconds
+Domain Reload Profiling: 540ms
+	BeginReloadAssembly (60ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (16ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (84ms)
+		LoadAssemblies (97ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (11ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (368ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (182ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (27ms)
+			ProcessInitializeOnLoadAttributes (123ms)
+			ProcessInitializeOnLoadMethodAttributes (29ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (344.9 KB). Loaded Objects now: 6053.
+Memory consumption went from 355.9 MB to 355.5 MB.
+Total: 2.036000 ms (FindLiveObjects: 0.178250 ms CreateObjectMapping: 0.046833 ms MarkObjects: 1.678625 ms  DeleteObjects: 0.131875 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x145e55c00 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x152138000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.169 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.366 seconds
+Domain Reload Profiling: 535ms
+	BeginReloadAssembly (58ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (83ms)
+		LoadAssemblies (95ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (10ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (366ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (182ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (26ms)
+			ProcessInitializeOnLoadAttributes (124ms)
+			ProcessInitializeOnLoadMethodAttributes (28ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.75 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.0 KB). Loaded Objects now: 6058.
+Memory consumption went from 359.9 MB to 359.5 MB.
+Total: 1.942000 ms (FindLiveObjects: 0.172541 ms CreateObjectMapping: 0.047167 ms MarkObjects: 1.613958 ms  DeleteObjects: 0.107833 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x32cc6e600 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x330008000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.182 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.351 seconds
+Domain Reload Profiling: 533ms
+	BeginReloadAssembly (60ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (15ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (93ms)
+		LoadAssemblies (97ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (9ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (351ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (177ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (27ms)
+			ProcessInitializeOnLoadAttributes (118ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.65 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (344.9 KB). Loaded Objects now: 6063.
+Memory consumption went from 363.9 MB to 363.5 MB.
+Total: 1.972333 ms (FindLiveObjects: 0.174375 ms CreateObjectMapping: 0.042250 ms MarkObjects: 1.645583 ms  DeleteObjects: 0.109667 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x32c93b200 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x3300e8000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.174 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.347 seconds
+Domain Reload Profiling: 521ms
+	BeginReloadAssembly (55ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (13ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (92ms)
+		LoadAssemblies (94ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (20ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (9ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (347ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (174ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (27ms)
+			ProcessInitializeOnLoadAttributes (116ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.67 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (344.9 KB). Loaded Objects now: 6068.
+Memory consumption went from 367.7 MB to 367.4 MB.
+Total: 1.874542 ms (FindLiveObjects: 0.175333 ms CreateObjectMapping: 0.045625 ms MarkObjects: 1.553083 ms  DeleteObjects: 0.100042 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x35373ae00 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x310098000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.169 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.352 seconds
+Domain Reload Profiling: 521ms
+	BeginReloadAssembly (57ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (84ms)
+		LoadAssemblies (94ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (11ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (352ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (173ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (25ms)
+			ProcessInitializeOnLoadAttributes (116ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.2 KB). Loaded Objects now: 6073.
+Memory consumption went from 371.7 MB to 371.4 MB.
+Total: 2.125250 ms (FindLiveObjects: 0.187500 ms CreateObjectMapping: 0.046959 ms MarkObjects: 1.779416 ms  DeleteObjects: 0.110875 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16f47f000 may have been prematurely finalized
+Symbol file data-0x113aace00 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x3200a8000 doesn't match image /Applications/Unity/Hub/Editor/2022.3.52f1c1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.173 seconds
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.351 seconds
+Domain Reload Profiling: 524ms
+	BeginReloadAssembly (58ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (14ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (9ms)
+	LoadAllAssembliesAndSetupDomain (86ms)
+		LoadAssemblies (97ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (11ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (351ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (174ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (26ms)
+			ProcessInitializeOnLoadAttributes (116ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.89 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5079 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (345.2 KB). Loaded Objects now: 6078.
+Memory consumption went from 375.7 MB to 375.4 MB.
+Total: 1.945583 ms (FindLiveObjects: 0.176125 ms CreateObjectMapping: 0.054917 ms MarkObjects: 1.599333 ms  DeleteObjects: 0.114708 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LAxis2D.cs: c05b9d150e81681709c8f5ee6620955e -> 
+  custom:scripting/monoscript/fileName/LMath.cs: 0a4610ddc7ad074d70e4e617d88ad328 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/Debug.cs: c5e2fc0b004b5976fba8d7ca194f4155 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/SkyboxRotator.cs: c122ade9e2d3a916264f47a45be02789 -> 
+  custom:scripting/monoscript/fileName/LUTAsin.cs: f67f92e78e7d1d5707c47b58d29ada0c -> 
+  custom:scripting/monoscript/fileName/LQuaternion.cs: d138a2e80a3d2502999ba7a9f8a2c9d0 -> 
+  custom:scripting/monoscript/fileName/LVector2.cs: c76d3e5e453929634ced31d7ccc85880 -> 
+  custom:scripting/monoscript/fileName/PrimerLUT.cs: b4db3030c473bb746dc6d4a5925cf792 -> 
+  custom:scripting/monoscript/fileName/RVOMath.cs: 757e51cdc9de69ba0b4cd6856a5bc5eb -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/LVector3.cs: 49dca85f69c6dda74d5c0c4d0efe7129 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LUTCos.cs: 6ec06e458b058ce4aa6be1e0dc1501c0 -> 
+  custom:scripting/monoscript/fileName/LogEventArgs.cs: 691463c6531a08ddb8da1c3efbe53985 -> 
+  custom:scripting/monoscript/fileName/KdTree.cs: 7946c8717ccd37e26cf2fcda680d934e -> 
+  custom:scripting/monoscript/fileName/LMath_Vector.cs: ac0fbf71cb588f4fd7435018ba6c8120 -> 
+  custom:scripting/monoscript/fileName/LFloat.cs: b60d12de4425959600a3213db52dcfba -> 
+  custom:scripting/monoscript/fileName/LMatrix33.cs: ecdc7d92cbca112d09b7a10d0efa0af8 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/Agent.cs: 585fbb2f699a650b2d34cc0dfa0e7045 -> 
+  custom:scripting/monoscript/fileName/Vector2.cs: 83ce96b2a428192609bd3daad0f167e1 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/LVector2Int.cs: 214f90ceaa896ec89c8264de4f88acd2 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/Logger.cs: 3604fb644c1bf859d7146d2dbfc4e63a -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/LMathExtension2.cs: 0366d37f1a8fb456c7e2d4540c6e7508 -> 
+  custom:scripting/monoscript/fileName/Simulator.cs: c82371d2b75b179154e5a07668480eec -> 
+  custom:scripting/monoscript/fileName/RVODemoManager.cs: 8c044e22993f97987895a0f1a8382539 -> 
+  custom:scripting/monoscript/fileName/LMathExtension.cs: 0bb5bf24c3c20123c9803767cbb88365 -> 
+  custom:scripting/monoscript/fileName/LAxis3D.cs: 0cd79a2ef13e673fd2ff5b93e9292ada -> 
+  custom:scripting/monoscript/fileName/Obstacle.cs: aaa67e91b14b80affd913ae37a3c8772 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:scripting/monoscript/fileName/LRandom.cs: 3e7a9b60e6d4e1288a949a1665e86bff -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/BaseLogger.cs: 952f95e6fc265a58cf94fc6474069c29 -> 
+  custom:scripting/monoscript/fileName/LVector3Int.cs: 1040cbc0212c32684dbcccab304be75f -> 
+  custom:scripting/monoscript/fileName/LUTAcos.cs: ab99c2eeedff3a978b6ed1abaeffc85a -> 
+  custom:scripting/monoscript/fileName/Line.cs: 55c4442033327a53881ad38f5492f24c -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LUTSin.cs: f976d61d687d096471198e46e163d7ea -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 3ce9fea27109cfb82fe0a200684b2619 -> 4abd2f8c96d46ca2c63c2cbe39b5bbda
+  custom:scripting/monoscript/fileName/LUTAtan2.cs: adeee1fa0141f05ee492354379fe4f58 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1288.691160 seconds.
+  path: Assets/Res/kenney_blocky-characters_20/Models/FBX format/character-b.fbx
+  artifactKey: Guid(78f791894f724423cac6d1056bdd47e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Res/kenney_blocky-characters_20/Models/FBX format/character-b.fbx using Guid(78f791894f724423cac6d1056bdd47e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd15fd2cc157d1655d15a6ec626260aca') in 0.261995 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 85

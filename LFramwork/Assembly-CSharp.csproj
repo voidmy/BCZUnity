@@ -101,6 +101,7 @@
     <Compile Include="Assets/scripts/Fixed-point-number-RVO2-CS/Math/BaseType/LMatrix33.cs" />
     <Compile Include="Assets/scripts/Framework/Pool/IPool.cs" />
     <Compile Include="Assets/scripts/Framework/Atlas/AtlasMgr.cs" />
+    <Compile Include="Assets/scripts/Test/RVODemo/RVODemoManager.cs" />
     <Compile Include="Assets/scripts/Fixed-point-number-RVO2-CS/Math/LRandom.cs" />
     <Compile Include="Assets/scripts/Fixed-point-number-RVO2-CS/Math/LUT/LUTAtan2.cs" />
     <Compile Include="Assets/scripts/Framework/Pool/Pool.cs" />
