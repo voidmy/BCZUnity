@@ -75,16 +75,31 @@ public class RVODemoManager : MonoBehaviour
         while (true)
         {
             yield return tm;
-            SpawnLines();
+            if (_activeAgents.Count < 2000)
+            {
+                SpawnLines();
+            }
+            
         }
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.StepSimulator");
         StepSimulator();
+        UnityEngine.Profiling.Profiler.EndSample();
+
+        UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.SyncTransforms");
         SyncTransforms();
+        UnityEngine.Profiling.Profiler.EndSample();
+
+        UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.RecycleOutOfBounds");
         RecycleOutOfBounds();
+        UnityEngine.Profiling.Profiler.EndSample();
+
+        // 同步当前激活角色数量到 FPS 显示脚本
+        FPSDisplay.CurrentRoleCount = _activeAgents.Count;
     }
 
     private void InitSimulator()

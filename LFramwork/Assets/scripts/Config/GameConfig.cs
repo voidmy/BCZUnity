@@ -10,7 +10,8 @@ public class GameConfig : MonoBehaviour
         var url = GameSetting.Instance.EntryMetaUrl.TrimEnd('/');
         //var url = DataManager.Instance.Local.Get(PlayerLocalData.Key.Dev_EntryMetaUrl, string.Format("{0}/{1}/EntryP{2}.json", GameSetting.Instance.EntryMetaUrl.TrimEnd('/'), platform, Version.Protocol));
 #else
-        var url = Build.EntryMetaUrl.TrimEnd('/');
+var url="";
+        //var url = Build.EntryMetaUrl.TrimEnd('/');
         //var url = DataManager.Instance.Local.Get(PlayerLocalData.Key.Dev_EntryMetaUrl, string.Format("{0}/{1}/EntryP{2}.json", Build.EntryMetaUrl.TrimEnd('/'), platform, Version.Protocol));
 #endif
         return url;
