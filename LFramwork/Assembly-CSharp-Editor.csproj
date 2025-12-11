@@ -746,6 +746,12 @@
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="UnityWebSocket.Runtime">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UnityWebSocket.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityWebSocket.Editor">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UnityWebSocket.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>

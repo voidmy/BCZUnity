@@ -85,6 +85,7 @@
     <Compile Include="Assets/scripts/Framework/Tool/UIPageControllerEditor.cs" />
     <Compile Include="Assets/scripts/Framework/Pool/PoolableObject.cs" />
     <Compile Include="Assets/scripts/Fixed-point-number-RVO2-CS/Logging/Src/LogSeverity.cs" />
+    <Compile Include="Assets/scripts/Test/RVODemo/RVOClientNetwork.cs" />
     <Compile Include="Assets/scripts/Framework/UI/WindowBase.cs" />
     <Compile Include="Assets/scripts/Fixed-point-number-RVO2-CS/RVOCS/KdTree.cs" />
     <Compile Include="Assets/scripts/Framework/Factory/IObjectFactory.cs" />
@@ -743,6 +744,12 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityWebSocket.Runtime">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UnityWebSocket.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityWebSocket.Editor">
+      <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/UnityWebSocket.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>/Users/lizhongquan/Desktop/Unity/UnityCode/Framwork/BCZUnity/LFramwork/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>

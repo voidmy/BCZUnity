@@ -1,0 +1,12 @@
+{
+  "name": "rvo-server",
+  "version": "1.0.0",
+  "description": "Simple Node.js server to control RVO simulation ticks from Unity client",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.17.0"
+  }
+}

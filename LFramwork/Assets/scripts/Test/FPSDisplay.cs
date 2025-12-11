@@ -37,6 +37,7 @@ public class FPSDisplay : MonoBehaviour
 
     private void Start()
     {
+        
         _timeLeft = updateInterval;
     }
 

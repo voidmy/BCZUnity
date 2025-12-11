@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Lockstep.Math;
 using RVO;
+using Unity.VisualScripting;
 using UnityEngine;
 using LVector2 = RVO.LVector2;
 
@@ -30,28 +32,55 @@ public class RVODemoManager : MonoBehaviour
     public float verticalSpacing = 1.5f;
     [Tooltip("出生位置相对于左右边界在 X 方向的偏移量，>0 表示生成在边界内侧一点")]
     public float spawnOffsetFromBoundary = 0.5f;
+    [Tooltip("生成最多的数量")]
+    public float spawnMaxNum = 1200;
 
     [Header("RVO 配置（定点）")]
-    [Tooltip("邻居感知距离：RVO 计算时能看到多远的其他 Agent（越大越安全但更耗性能）")]
-    public float rvoNeighborDist = 3f;
+    [Tooltip("邻居感知距离（定点 LFloat）：RVO 计算时能看到多远的其他 Agent（越大越安全但更耗性能）")]
+    public LFloat rvoNeighborDist = (LFloat)3f;
     [Tooltip("每个 Agent 参与计算的最大邻居数量（过小会不安全，过大会更耗性能）")]
     public int rvoMaxNeighbors = 10;
-    [Tooltip("与其他 Agent 的时间视野：越大越早避让，但自由度越低")]
-    public float rvoTimeHorizon = 2f;
-    [Tooltip("与障碍物的时间视野：越大越早避让障碍，但自由度越低")]
-    public float rvoTimeHorizonObst = 2f;
-    [Tooltip("Agent 碰撞半径（决定彼此之间的最小间距）")]
-    public float rvoRadius = 0.5f;
-    [Tooltip("最大移动速度（RVO 会在不违反约束的前提下尽量接近这个速度）")]
-    public float rvoMaxSpeed = 2f;
-    [Tooltip("RVO 仿真时间步长（单位秒）：越小越精确但计算更频繁")]
-    public float rvoTimeStep = 0.1f;
+    [Tooltip("与其他 Agent 的时间视野（定点 LFloat）：越大越早避让，但自由度越低")]
+    public LFloat rvoTimeHorizon = (LFloat)2f;
+    [Tooltip("与障碍物的时间视野（定点 LFloat）：越大越早避让障碍，但自由度越低")]
+    public LFloat rvoTimeHorizonObst = (LFloat)2f;
+    [Tooltip("Agent 碰撞半径（定点 LFloat，决定彼此之间的最小间距）")]
+    public LFloat rvoRadius = (LFloat)0.5f;
+    [Tooltip("最大移动速度（定点 LFloat，RVO 会在不违反约束的前提下尽量接近这个速度")]
+    public LFloat rvoMaxSpeed = (LFloat)2f;
+    [Tooltip("RVO 仿真时间步长（定点 LFloat，单位秒）：越小越精确但计算更频繁")]
+    public LFloat rvoTimeStep = (LFloat)0.1f;
 
+ 
+    private List<int> _nextRemoveIdList = new ();
+    public enum AgentType
+    {
+        Owner,
+        Enemy,
+    }
+
+    
     private class AgentInfo
     {
         public int agentId;
         public GameObject go;
         public bool moveRight; // true: 从左到右，false: 从右到左
+        public int moveStepIndex;
+        public AgentType AgentType;
+
+        public float GetMoveStep()
+        {
+           
+            moveStepIndex++;
+            if (moveStepIndex > Simulator.AgentSliceNum)
+            {
+                moveStepIndex = 0;
+            }
+
+            var t = (float)moveStepIndex / Simulator.AgentSliceNum;
+           
+            return t;
+        }
     }
 
     private readonly List<AgentInfo> _activeAgents = new List<AgentInfo>();
@@ -64,7 +93,10 @@ public class RVODemoManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 60; 
         InitSimulator();
+        //SpawnLines();
+       // return;
         StartCoroutine(SpawnObj());
     }
 
@@ -72,19 +104,18 @@ public class RVODemoManager : MonoBehaviour
     {
         var tm = new WaitForSeconds(2f);
         SpawnLines();
+        
         while (true)
         {
             yield return tm;
-            if (_activeAgents.Count < 2000)
+            if (_activeAgents.Count < spawnMaxNum)
             {
                 SpawnLines();
             }
-            
         }
-        
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.StepSimulator");
         StepSimulator();
@@ -106,17 +137,17 @@ public class RVODemoManager : MonoBehaviour
     {
         var sim = Simulator.Instance;
         sim.Clear();
-        sim.setTimeStep(ToLFloat(rvoTimeStep));
+        sim.setTimeStep(rvoTimeStep);
         sim.SetNumWorkers(0);
 
         sim.setAgentDefaults(
-            ToLFloat(rvoNeighborDist),
+            rvoNeighborDist,
             rvoMaxNeighbors,
-            ToLFloat(rvoTimeHorizon),
-            ToLFloat(rvoTimeHorizonObst),
-            ToLFloat(rvoRadius),
-            ToLFloat(rvoMaxSpeed),
-            new  RVO.LVector2(LFloat.zero,LFloat.zero)
+            rvoTimeHorizon,
+            rvoTimeHorizonObst,
+            rvoRadius,
+            rvoMaxSpeed*Simulator.AgentSliceNum,
+            new RVO.LVector2(LFloat.zero, LFloat.zero)
         );
     }
 
@@ -139,12 +170,12 @@ public class RVODemoManager : MonoBehaviour
         for (int i = 0; i < agentsPerSide; i++)
         {
             float z = minZ + step * (i + 1);
-            SpawnOne(true, z);  // 左到右
-            SpawnOne(false, z); // 右到左
+            SpawnOne(true, z,AgentType.Owner);  // 左到右
+            SpawnOne(false, z,AgentType.Enemy); // 右到左
         }
     }
 
-    private void SpawnOne(bool moveRight, float z)
+    private void SpawnOne(bool moveRight, float z,AgentType agentType)
     {
         var prefab = moveRight ? leftToRightPrefab : rightToLeftPrefab;
         if (prefab == null)
@@ -154,8 +185,8 @@ public class RVODemoManager : MonoBehaviour
         }
 
         float xBoundary = moveRight ? leftBoundary.position.x : rightBoundary.position.x;
-        float dir = moveRight ? 1f : -1f;
-        float x = xBoundary + dir * spawnOffsetFromBoundary;
+        float dirSign = moveRight ? 1f : -1f;
+        float x = xBoundary + dirSign * spawnOffsetFromBoundary;
 
         Vector3 worldPos = new Vector3(x, 0f, z);
         LVector2 pos2 = ToLVector2(worldPos);
@@ -167,8 +198,9 @@ public class RVODemoManager : MonoBehaviour
             return;
         }
 
-        // 设置首选速度
-        LVector2 prefVel = new LVector2(ToLFloat(dir * rvoMaxSpeed), LFloat.zero);
+        // 设置首选速度（完全使用定点数）
+        LFloat dir = moveRight ? LFloat.one : -LFloat.one;
+        LVector2 prefVel = new LVector2(dir * rvoMaxSpeed*Simulator.AgentSliceNum, LFloat.zero);
         Simulator.Instance.setAgentPrefVelocity(agentId, prefVel);
 
         GameObject go = GetFromPool(moveRight, prefab);
@@ -179,7 +211,8 @@ public class RVODemoManager : MonoBehaviour
         {
             agentId = agentId,
             go = go,
-            moveRight = moveRight
+            moveRight = moveRight,
+            AgentType = agentType
         });
     }
 
@@ -205,20 +238,41 @@ public class RVODemoManager : MonoBehaviour
 
     private void StepSimulator()
     {
-        Simulator.Instance.doStep();
+        var sim2 = Simulator.Instance;
+        sim2.doStep();
+        return;
+        int ticks = RVOClientNetwork.ConsumeTicks();
+        if (ticks <= 0)
+        {
+            return;
+        }
+
+        var sim = Simulator.Instance;
+        for (int i = 0; i < ticks; i++)
+        {
+            sim.doStep();
+        }
     }
 
     private void SyncTransforms()
     {
         var sim = Simulator.Instance;
+        var len= _activeAgents.Count/Simulator.AgentSliceNum;
+        var step = sim.IndexStep - 1;//因为后面加了
+        _nextRemoveIdList.Clear();
         for (int i = 0; i < _activeAgents.Count; i++)
         {
             AgentInfo info = _activeAgents[i];
             if (!sim.getHasAgent(info.agentId))
                 continue;
-
+            if (i >= step * len && i < (step + 1) * len)
+            {
+                info.moveStepIndex = 0;
+                //sim.getAgentNumAgentNeighbors(info.agentId);
+            }
             LVector2 pos2 = sim.getAgentPosition(info.agentId);
             Vector3 pos3 = ToVector3(pos2);
+            //info.go.transform.position=Vector3.Lerp(info.go.transform.position, pos3, info.GetMoveStep());
             info.go.transform.position = pos3;
             // 面向 +X / -X
             Vector3 dir = info.moveRight ? Vector3.right : Vector3.left;

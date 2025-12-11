@@ -158,16 +158,23 @@ MonoBehaviour:
   bottomBoundary: {fileID: 1694362522}
   leftToRightPrefab: {fileID: 7099656477587870618}
   rightToLeftPrefab: {fileID: 5088994141723184645}
-  agentsPerSide: 50
-  verticalSpacing: 0.5
+  agentsPerSide: 100
+  verticalSpacing: 1
   spawnOffsetFromBoundary: 0.5
-  rvoNeighborDist: 1
-  rvoMaxNeighbors: 1
-  rvoTimeHorizon: 4
-  rvoTimeHorizonObst: 4
-  rvoRadius: 1
-  rvoMaxSpeed: 0.2
-  rvoTimeStep: 0.2
+  spawnMaxNum: 1200
+  rvoNeighborDist:
+    _val: 3000000
+  rvoMaxNeighbors: 4
+  rvoTimeHorizon:
+    _val: 2000000
+  rvoTimeHorizonObst:
+    _val: 2000000
+  rvoRadius:
+    _val: 500000
+  rvoMaxSpeed:
+    _val: 600000
+  rvoTimeStep:
+    _val: 120000
 --- !u!4 &52370839
 Transform:
   m_ObjectHideFlags: 0
