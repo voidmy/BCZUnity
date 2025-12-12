@@ -18,6 +18,9 @@ public class RVOClientNetwork : MonoBehaviour
     // 服务器累计发送的 tick 总数量（从服务器 tickCount 字段同步过来），用于调试显示
     public static int TotalServerTickCount;
 
+    // 本地累计已经消费的 tick 数量（通过 RVODemoManager.StepSimulator 统计），用于对比服务器 tickCount
+    public static int TotalConsumedTicks;
+
     public static RVOClientNetwork Instance;
 
     [Serializable]
@@ -36,15 +39,45 @@ public class RVOClientNetwork : MonoBehaviour
     }
 
     [Serializable]
+    private class DesyncMessage
+    {
+        public string type;        // "desync"
+        public int tick;           // 发生分叉的 tick
+        public int expectedHash;   // 服务器记录的第一个 hash
+        public int newHash;        // 当前客户端上报的 hash
+    }
+
+    [Serializable]
     public class SpawnMessage
     {
         public string type; // "spawn"
         public int side;    // 0: left side (Owner), 1: right side (Enemy)
         public int x;       // 出生点世界坐标 X（整数网格）
         public int z;       // 出生点世界坐标 Z（整数网格）
+        public int tick;    // 服务器指定的在第几个逻辑 tick 上生成
+    }
+
+    [Serializable]
+    public class SkillMessage
+    {
+        public string type; // "skill"
+        public int x;       // 技能中心世界坐标 X（整数网格）
+        public int z;       // 技能中心世界坐标 Z（整数网格）
+        public int radius;  // 技能半径（整数网格，近似范围即可）
+        public int tick;    // 服务器指定的在第几个逻辑 tick 上生效
+    }
+
+    [Serializable]
+    public class StateHashMessage
+    {
+        public string type; // "stateHash"
+        public int tick;    // 本地累计已消费的 tick（应与服务器 tickCount 对齐）
+        public int hash;    // 当前全局状态哈希
     }
 
     public static event Action<SpawnMessage> OnSpawnMessage;
+    public static event Action<SkillMessage> OnSkillMessage;
+    public static event Action<int, int, int> OnDesync; // tick, expectedHash, newHash
 
     private void Awake()
     {
@@ -77,8 +110,6 @@ public class RVOClientNetwork : MonoBehaviour
             _ws.OnOpen += (sender, e) =>
             {
                 Debug.Log("[RVOClientNetwork] Connected to server");
-                // 默认连接后就请求开始模拟
-                _ws.SendAsync("start");
             };
 
             _ws.OnMessage += (sender, e) =>
@@ -107,6 +138,22 @@ public class RVOClientNetwork : MonoBehaviour
                         if (spawnMsg != null && OnSpawnMessage != null)
                         {
                             OnSpawnMessage(spawnMsg);
+                        }
+                    }
+                    else if (baseMsg.type == "skill")
+                    {
+                        var skillMsg = JsonUtility.FromJson<SkillMessage>(e.Data);
+                        if (skillMsg != null && OnSkillMessage != null)
+                        {
+                            OnSkillMessage(skillMsg);
+                        }
+                    }
+                    else if (baseMsg.type == "desync")
+                    {
+                        var desyncMsg = JsonUtility.FromJson<DesyncMessage>(e.Data);
+                        if (desyncMsg != null && OnDesync != null)
+                        {
+                            OnDesync(desyncMsg.tick, desyncMsg.expectedHash, desyncMsg.newHash);
                         }
                     }
                 }
@@ -166,6 +213,64 @@ public class RVOClientNetwork : MonoBehaviour
             side = leftSide ? 0 : 1,
             x = x,
             z = z
+        };
+
+        string json = JsonUtility.ToJson(msg);
+        Instance._ws.SendAsync(json);
+    }
+
+    /// <summary>
+    /// 本地请求在某个位置释放一个范围技能，由服务器广播统一生效。
+    /// </summary>
+    public static void SendSkillRequest(int x, int z, int radius)
+    {
+        if (Instance == null)
+        {
+            Debug.LogWarning("[RVOClientNetwork] Instance is null, cannot send skill request");
+            return;
+        }
+
+        if (Instance._ws == null)
+        {
+            Debug.LogWarning("[RVOClientNetwork] WebSocket is null, cannot send skill request");
+            return;
+        }
+
+        var msg = new SkillMessage
+        {
+            type = "skill",
+            x = x,
+            z = z,
+            radius = radius
+        };
+
+        string json = JsonUtility.ToJson(msg);
+        Instance._ws.SendAsync(json);
+    }
+
+    /// <summary>
+    /// 将当前 tick 的全局状态哈希发送给服务器，方便服务器检测多客户端是否分叉。
+    /// 由 RVODemoManager.StepSimulator 在每个 tick 结束时调用。
+    /// </summary>
+    public static void SendStateHash(int tick, int hash)
+    {
+        if (Instance == null)
+        {
+            Debug.LogWarning("[RVOClientNetwork] Instance is null, cannot send state hash");
+            return;
+        }
+
+        if (Instance._ws == null)
+        {
+            Debug.LogWarning("[RVOClientNetwork] WebSocket is null, cannot send state hash");
+            return;
+        }
+
+        var msg = new StateHashMessage
+        {
+            type = "stateHash",
+            tick = tick,
+            hash = hash
         };
 
         string json = JsonUtility.ToJson(msg);

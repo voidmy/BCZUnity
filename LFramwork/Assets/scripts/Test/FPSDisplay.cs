@@ -87,17 +87,18 @@ public class FPSDisplay : MonoBehaviour
         }
 
         string text = string.Format(
-            "FPS: {0:F1}\nFrame Time: {1:F2} ms\nScreen: {2}x{3}\nRole Count: {4}\nServer TickCount: {5}",
+            "FPS: {0:F1}\nFrame Time: {1:F2} ms\nScreen: {2}x{3}\nRole Count: {4}\nServer TickCount: {5}\nLocal ConsumedTicks: {6}",
             _fps,
             _fps > 0.01f ? 1000f / _fps : 0f,
             Screen.width,
             Screen.height,
             CurrentRoleCount,
-            RVOClientNetwork.TotalServerTickCount
+            RVOClientNetwork.TotalServerTickCount,
+            RVOClientNetwork.TotalConsumedTicks
         );
 
-        // 高度适当调大，容纳多出的 Server TickCount 一行
-        GUI.Label(new Rect(10, 10, 400, 140), text, _style);
+        // 高度适当调大，容纳多出的几行信息
+        GUI.Label(new Rect(10, 10, 400, 170), text, _style);
 
         GUI.matrix = oldMatrix;
     }

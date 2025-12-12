@@ -82,6 +82,7 @@
     <Compile Include="Assets/scripts/Framework/Pool/SafeObjectPool.cs" />
     <Compile Include="Assets/scripts/Launch.cs" />
     <Compile Include="Assets/scripts/Fixed-point-number-RVO2-CS/RVOCS/Vector2.cs" />
+    <Compile Include="Assets/scripts/Test/RVODemo/RVOSkillController.cs" />
     <Compile Include="Assets/scripts/Framework/Tool/UIPageControllerEditor.cs" />
     <Compile Include="Assets/scripts/Framework/Pool/PoolableObject.cs" />
     <Compile Include="Assets/scripts/Fixed-point-number-RVO2-CS/Logging/Src/LogSeverity.cs" />

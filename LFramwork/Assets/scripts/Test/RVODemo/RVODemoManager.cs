@@ -68,6 +68,16 @@ public class RVODemoManager : MonoBehaviour
     public Text ScoreTxt;
     private List<int> _nextRemoveIdList = new();
 
+    // 等待在下一次消耗服务器 tick 时统一生成的出生消息队列，避免各客户端在不同帧/不同 Tick 上生成
+    private readonly Queue<RVOClientNetwork.SpawnMessage> _pendingSpawnMessages = new();
+
+    // 等待在下一次消耗服务器 tick 时统一执行的技能消息队列，确保技能也只在服务器 tick 中生效
+    private readonly Queue<RVOClientNetwork.SkillMessage> _pendingSkillMessages = new();
+
+    // 左右边界的定点 X，用于出界判断，避免不同客户端浮点差异
+    private LFloat _leftBoundaryXFixed;
+    private LFloat _rightBoundaryXFixed;
+
     public enum AgentType
     {
         Owner,
@@ -140,7 +150,9 @@ public class RVODemoManager : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         Application.targetFrameRate = 60;
         InitSimulator();
-        // 不再自动生成，改为按键生成
+
+        // 监听服务器的 desync 事件，在检测到分叉时把当前完整状态详细打印出来，便于对比
+        RVOClientNetwork.OnDesync += OnNetworkDesync;
     }
 
     private void OnEnable()
@@ -148,9 +160,33 @@ public class RVODemoManager : MonoBehaviour
         RVOClientNetwork.OnSpawnMessage += OnSpawnFromServer;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
+        RVOClientNetwork.OnDesync -= OnNetworkDesync;
         RVOClientNetwork.OnSpawnMessage -= OnSpawnFromServer;
+    }
+
+    private void OnNetworkDesync(int tick, int expectedHash, int newHash)
+    {
+        Debug.LogWarning($"[DESYNC] Detected at Tick={tick}, expectedHash={expectedHash}, localHash={newHash}. Dumping full state...");
+
+        var sim = Simulator.Instance;
+
+        // 打印所有仍然存在于 RVO 模拟中的 Agent 的详细信息
+        for (int i = 0; i < _activeAgents.Count; i++)
+        {
+            var info = _activeAgents[i];
+            if (!sim.getHasAgent(info.agentId))
+                continue;
+
+            LVector2 pos2 = sim.getAgentPosition(info.agentId);
+            var posX = pos2.x()._val;
+            var posY = pos2.y()._val;
+
+            Debug.LogWarning($"[DESYNC-DUMP] Tick={tick} AgentId={info.agentId} Type={info.AgentType} HP={info.hp} PosX={posX} PosY={posY}");
+        }
+
+        Debug.LogWarning($"[DESYNC-DUMP] Tick={tick} Scores: Left={leftScore}, Right={rightScore}, ActiveAgents={_activeAgents.Count}");
     }
 
     private void Update()
@@ -170,18 +206,6 @@ public class RVODemoManager : MonoBehaviour
         UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.StepSimulator");
         ticks = StepSimulator();
         UnityEngine.Profiling.Profiler.EndSample();
-
-        // 扣血和出界等逻辑只在本帧实际消费了服务器 tick（仿真前进）时执行
-        if (ticks > 0)
-        {
-            UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.ApplyDamageByEnemy");
-            ApplyDamageByEnemy();
-            UnityEngine.Profiling.Profiler.EndSample();
-
-            UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.RecycleOutOfBounds");
-            RecycleOutOfBounds();
-            UnityEngine.Profiling.Profiler.EndSample();
-        }
 
         // 位置同步只读数据，不影响逻辑，可每帧执行
         UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.SyncTransforms");
@@ -208,6 +232,13 @@ public class RVODemoManager : MonoBehaviour
             rvoMaxSpeed * Simulator.AgentSliceNum,
             new RVO.LVector2(LFloat.zero, LFloat.zero)
         );
+
+        // 用当前场景里左右边界的位置初始化定点边界，供后续出界判断使用
+        if (leftBoundary != null && rightBoundary != null)
+        {
+            _leftBoundaryXFixed = ToLFloat(leftBoundary.position.x);
+            _rightBoundaryXFixed = ToLFloat(rightBoundary.position.x);
+        }
     }
 
     private void SpawnLines()
@@ -299,9 +330,7 @@ public class RVODemoManager : MonoBehaviour
 
     private int StepSimulator()
     {
-        // var sim2 = Simulator.Instance;
-        // sim2.doStep();
-        // return;
+        // 一次性取出服务器这帧累计下发的 tick 数
         int ticks = RVOClientNetwork.ConsumeTicks();
         if (ticks <= 0)
         {
@@ -309,9 +338,48 @@ public class RVODemoManager : MonoBehaviour
         }
 
         var sim = Simulator.Instance;
-        for (int i = 0; i < ticks; i++)
+
+        // 按 tick 粒度前进：每一个 tick 都执行一次 doStep -> spawn/skill -> 扣血 -> 出界
+        for (int t = 0; t < ticks; t++)
         {
+            // 即将要模拟的逻辑 tick 序号（从 1 开始累加），用于按服务器指定的 tick 消费 spawn/skill 队列
+            int logicTick = RVOClientNetwork.TotalConsumedTicks + 1;
+
             sim.doStep();
+
+            // 先在当前 tick 上统一处理所有“应该在本 tick 及之前”生成的出生消息，确保多客户端在同一 tick 生成相同的 Agent 集合
+            while (_pendingSpawnMessages.Count > 0 && _pendingSpawnMessages.Peek().tick <= logicTick)
+            {
+                var spawnMsg = _pendingSpawnMessages.Dequeue();
+                SpawnFromServer(spawnMsg);
+            }
+
+            // 再在当前 tick 上统一处理所有“应该在本 tick 及之前”生效的技能消息
+            while (_pendingSkillMessages.Count > 0 && _pendingSkillMessages.Peek().tick <= logicTick)
+            {
+                var skillMsg = _pendingSkillMessages.Dequeue();
+                Vector3 center = new Vector3(skillMsg.x, 0f, skillMsg.z);
+                float radius = skillMsg.radius;
+                ExecuteSkillKillInCircle(center, radius);
+            }
+
+            UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.ApplyDamageByEnemy");
+            ApplyDamageByEnemy();
+            UnityEngine.Profiling.Profiler.EndSample();
+
+            UnityEngine.Profiling.Profiler.BeginSample("RVODemoManager.RecycleOutOfBounds");
+            RecycleOutOfBounds();
+            UnityEngine.Profiling.Profiler.EndSample();
+
+            // 统计本地累计已消费的 tick，用于调试对比服务器 tickCount
+            RVOClientNetwork.TotalConsumedTicks++;
+
+            // 计算当前全局状态 hash，便于多客户端快速对比是否仍然一致
+            int stateHash = ComputeStateHash();
+            Debug.LogWarning($"[StateHash] Tick={RVOClientNetwork.TotalConsumedTicks}, Hash={stateHash}");
+
+            // 将本 tick 的状态哈希发送给服务器，由服务器负责检测多客户端是否分叉
+            RVOClientNetwork.SendStateHash(RVOClientNetwork.TotalConsumedTicks, stateHash);
         }
 
         return ticks;
@@ -351,6 +419,8 @@ public class RVODemoManager : MonoBehaviour
         {
             return;
         }
+
+        var killedThisFrame = new List<int>();
 
         // agentId -> AgentInfo 映射，便于通过邻居 id 找到阵营/HP 信息
         var agentInfoMap = new Dictionary<int, AgentInfo>(_activeAgents.Count);
@@ -399,10 +469,16 @@ public class RVODemoManager : MonoBehaviour
             self.hp -= 1;
             if (self.hp <= 0)
             {
+                killedThisFrame.Add(self.agentId);
                 sim.delAgent(self.agentId);
                 ReturnToPool(self);
                 _activeAgents.RemoveAt(i);
             }
+        }
+
+        if (killedThisFrame.Count > 0)
+        {
+            Debug.LogWarning($"[ApplyDamageByEnemy] Tick={RVOClientNetwork.TotalConsumedTicks}, Killed: {string.Join(",", killedThisFrame)}");
         }
     }
 
@@ -411,12 +487,9 @@ public class RVODemoManager : MonoBehaviour
         if (leftBoundary == null || rightBoundary == null)
             return;
 
-        float leftX = leftBoundary.position.x;
-        float rightX = rightBoundary.position.x;
-        float minX = Mathf.Min(leftX, rightX);
-        float maxX = Mathf.Max(leftX, rightX);
-
         var sim = Simulator.Instance;
+
+        var recycledThisFrame = new List<string>();
 
         for (int i = _activeAgents.Count - 1; i >= 0; i--)
         {
@@ -429,7 +502,11 @@ public class RVODemoManager : MonoBehaviour
             }
 
             LVector2 pos2 = sim.getAgentPosition(info.agentId);
-            float x = (float)pos2.x();
+            LFloat x = pos2.x();
+
+            // 使用定点数与左右边界进行比较，避免浮点误差导致不同客户端出界时机不一致
+            LFloat minX = LMath.Min(_leftBoundaryXFixed, _rightBoundaryXFixed);
+            LFloat maxX = LMath.Max(_leftBoundaryXFixed, _rightBoundaryXFixed);
 
             bool outOfBounds = (x < minX && !info.moveRight) || (x > maxX && info.moveRight);
             if (outOfBounds)
@@ -440,10 +517,16 @@ public class RVODemoManager : MonoBehaviour
                 if (info.moveRight && x > maxX)
                 {
                     rightScore++;
+                    recycledThisFrame.Add($"{info.agentId}:RightScore");
                 }
                 else if (!info.moveRight && x < minX)
                 {
                     leftScore++;
+                    recycledThisFrame.Add($"{info.agentId}:LeftScore");
+                }
+                else
+                {
+                    recycledThisFrame.Add($"{info.agentId}:NoScore");
                 }
 
                 sim.delAgent(info.agentId);
@@ -453,9 +536,28 @@ public class RVODemoManager : MonoBehaviour
         }
 
         UpdateScore();
+
+        if (recycledThisFrame.Count > 0)
+        {
+            Debug.LogWarning($"[RecycleOutOfBounds] Tick={RVOClientNetwork.TotalConsumedTicks}, Recycled: {string.Join(",", recycledThisFrame)}");
+        }
     }
 
     private void OnSpawnFromServer(RVOClientNetwork.SpawnMessage msg)
+    {
+        // 不在网络回调里直接生成，先缓存，等待下一次消耗服务器 tick 时统一生成
+        _pendingSpawnMessages.Enqueue(msg);
+    }
+
+    /// <summary>
+    /// 供技能控制脚本在收到服务器广播的 skill 消息时调用，先缓存，等待下一次 Tick 统一执行。
+    /// </summary>
+    public void EnqueueSkill(RVOClientNetwork.SkillMessage msg)
+    {
+        _pendingSkillMessages.Enqueue(msg);
+    }
+
+    private void SpawnFromServer(RVOClientNetwork.SpawnMessage msg)
     {
         bool leftSide = msg.side == 0;
         bool moveRight = leftSide;
@@ -493,5 +595,72 @@ public class RVODemoManager : MonoBehaviour
     private void UpdateScore()
     {
         ScoreTxt.text=$"分数 {leftScore} 比 {rightScore}";
+    }
+
+    /// <summary>
+    /// 在一个圆形范围内（近似）秒杀所有单位（不分敌我），用于技能效果。
+    /// 由 RVOSkillController 在收到服务器广播的 skill 消息时调用，确保多端一致。
+    /// </summary>
+    public void ExecuteSkillKillInCircle(Vector3 center, float radius)
+    {
+        var sim = Simulator.Instance;
+
+        // 使用定点数做圆形范围判断，减少多客户端之间的边缘差异
+        LVector2 centerFixed = new LVector2(ToLFloat(center.x), ToLFloat(center.z));
+        LFloat radiusFixed = ToLFloat(radius);
+        LFloat radiusSqrFixed = radiusFixed * radiusFixed;
+
+        for (int i = _activeAgents.Count - 1; i >= 0; i--)
+        {
+            var info = _activeAgents[i];
+            if (!sim.getHasAgent(info.agentId))
+            {
+                ReturnToPool(info);
+                _activeAgents.RemoveAt(i);
+                continue;
+            }
+
+            LVector2 pos2 = sim.getAgentPosition(info.agentId);
+            LVector2 diff = pos2 - centerFixed;
+            LFloat distSqr = diff.x() * diff.x() + diff.y() * diff.y();
+
+            if (distSqr <= radiusSqrFixed)
+            {
+                // 命中技能范围，直接移除 agent 和对应 GameObject
+                sim.delAgent(info.agentId);
+                ReturnToPool(info);
+                _activeAgents.RemoveAt(i);
+            }
+        }
+    }
+
+    // 基于当前所有存活 Agent 的 id、hp、阵营和定点坐标计算一个简单 hash，用于对比多端状态
+    private int ComputeStateHash()
+    {
+        unchecked
+        {
+            int hash = 17;
+            var sim = Simulator.Instance;
+
+            for (int i = 0; i < _activeAgents.Count; i++)
+            {
+                var info = _activeAgents[i];
+                if (!sim.getHasAgent(info.agentId))
+                    continue;
+
+                LVector2 pos2 = sim.getAgentPosition(info.agentId);
+
+                hash = hash * 31 + info.agentId;
+                hash = hash * 31 + (int)info.AgentType;
+                hash = hash * 31 + info.hp;
+                hash = hash * 31 + pos2.x()._val.GetHashCode();
+                hash = hash * 31 + pos2.y()._val.GetHashCode();
+            }
+
+            hash = hash * 31 + leftScore;
+            hash = hash * 31 + rightScore;
+
+            return hash;
+        }
     }
 }
