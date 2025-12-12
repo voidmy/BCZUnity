@@ -16,6 +16,15 @@ public class RVOSkillController : MonoBehaviour
     public RVODemoManager demoManager;       // 在 Inspector 里拖引用
     public Camera worldCamera;               // 用于从屏幕点击射线到场景，默认为 Camera.main
 
+    [Header("技能特效与冷却")]
+    public GameObject skillEffectPrefab;     // 释放技能时在世界中显示的特效
+    public float cooldownSeconds = 1.5f;     // 冷却时间（秒），冷却结束前不能再次释放
+
+    [Tooltip("技能特效在场景中保留的时间（秒），到时间后自动销毁")]
+    public float effectLifetime = 1.0f;
+
+    private float _nextCastTime = 0f;
+
     private void Awake()
     {
         if (worldCamera == null)
@@ -36,29 +45,15 @@ public class RVOSkillController : MonoBehaviour
 
     private void Update()
     {
-        // 鼠标左键点击
-        if (Input.GetMouseButtonDown(0))
-        {
-            TryCastSkillByScreenPosition(Input.mousePosition);
-        }
+        // 冷却中，直接忽略所有释放请求
+        bool canCast = Time.time >= _nextCastTime;
 
-#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_ANDROID || UNITY_IOS
-        // 触摸（简单处理第一个触点的按下）
-        if (Input.touchCount > 0)
+        // 只允许按键释放技能
+        if (canCast && Input.GetKeyDown(castKey))
         {
-            var touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                TryCastSkillByScreenPosition(touch.position);
-            }
-        }
-#endif
-
-        // 可选：键盘按键也在屏幕中心释放一次技能
-        if (Input.GetKeyDown(castKey))
-        {
-            Vector3 centerScreen = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f);
-            TryCastSkillByScreenPosition(centerScreen);
+            // 使用当前鼠标位置来确定技能落点
+            Vector3 mousePos = Input.mousePosition;
+            TryCastSkillByScreenPosition(mousePos);
         }
     }
 
@@ -79,6 +74,9 @@ public class RVOSkillController : MonoBehaviour
 
             // 本地只发送请求，真正生效在收到服务器广播的 skill 消息时
             RVOClientNetwork.SendSkillRequest(x, z, r);
+
+            // 进入冷却
+            _nextCastTime = Time.time + cooldownSeconds;
         }
     }
 
@@ -89,5 +87,21 @@ public class RVOSkillController : MonoBehaviour
 
         // 不直接修改仿真数据，交给 RVODemoManager 在下一次 Tick 中统一处理
         demoManager.EnqueueSkill(msg);
+
+        // 在所有客户端统一显示技能特效（位置和大小一致）
+        if (skillEffectPrefab != null)
+        {
+            Vector3 worldPos = new Vector3(msg.x, 0f, msg.z);
+            var go = Instantiate(skillEffectPrefab, worldPos, Quaternion.identity);
+
+            // 简单按半径缩放特效大小（假设 prefab 是单位大小）
+            float scale = msg.radius * 2f;
+            go.transform.localScale = new Vector3(scale, scale, scale);
+
+            if (effectLifetime > 0f)
+            {
+                Destroy(go, effectLifetime);
+            }
+        }
     }
 }

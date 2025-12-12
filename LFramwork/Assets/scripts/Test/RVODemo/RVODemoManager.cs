@@ -84,6 +84,62 @@ public class RVODemoManager : MonoBehaviour
         Enemy,
     }
 
+    private void OnResetFromServer()
+    {
+        // 服务器发出 reset 指令时，本地彻底清空仿真状态，并从干净状态重新开始。
+
+        // 停止自动刷怪协程（仅在本客户端是刷怪控制端且协程已启动时有效）。
+        if (_spawnRoleCoroutine != null)
+        {
+            StopCoroutine(_spawnRoleCoroutine);
+            _spawnRoleCoroutine = null;
+            _spawnRoleStarted = false;
+        }
+
+        // 清空 RVO 仿真和本地 Agent 列表
+        var sim = Simulator.Instance;
+        sim.Clear();
+        _activeAgents.Clear();
+
+        // 清空技能相关和待处理消息队列
+        _skillAgentIds.Clear();
+        _skillAgentRadii.Clear();
+        _pendingSpawnMessages.Clear();
+        _pendingSkillMessages.Clear();
+
+        // 重置比分和调试计数器
+        leftScore = 0;
+        rightScore = 0;
+        UpdateScore();
+        RVOClientNetwork.TotalConsumedTicks = 0;
+
+        // 重新初始化模拟器（包括定点边界等）
+        InitSimulator();
+
+        // 如果本客户端是 userId == 1，则在重置后重新启动自动刷怪协程
+        if (RVOClientNetwork.LocalUserId == 1 && !_spawnRoleStarted)
+        {
+            _spawnRoleStarted = true;
+            _spawnRoleCoroutine = StartCoroutine(SpawnRole());
+        }
+    }
+
+    private bool _spawnRoleStarted;
+    private Coroutine _spawnRoleCoroutine;
+
+    private void OnHelloFromServer(int userId)
+    {
+        // 约定：第一个连接到服务器的客户端（userId == 1）负责自动刷怪，其他客户端不执行该协程。
+        if (_spawnRoleStarted)
+            return;
+
+        if (userId == 1)
+        {
+            _spawnRoleStarted = true;
+            _spawnRoleCoroutine = StartCoroutine(SpawnRole());
+        }
+    }
+
     private void SpawnOneAtSide(bool leftSide)
     {
         if (leftBoundary == null || rightBoundary == null || topBoundary == null || bottomBoundary == null)
@@ -140,6 +196,10 @@ public class RVODemoManager : MonoBehaviour
     private readonly Queue<GameObject> _poolLeftToRight = new Queue<GameObject>();
     private readonly Queue<GameObject> _poolRightToLeft = new Queue<GameObject>();
 
+    // 当前场景中等待在下一次 tick 结算的技能 RVO Agent 列表（隐形，只用于邻居判定）
+    private readonly List<int> _skillAgentIds = new List<int>();
+    private readonly List<LFloat> _skillAgentRadii = new List<LFloat>();
+
     private LFloat ToLFloat(float v) => (LFloat)v;
     private LVector2 ToLVector2(Vector3 v3) => new LVector2(ToLFloat(v3.x), ToLFloat(v3.z));
     private Vector3 ToVector3(LVector2 v2) => new Vector3((float)v2.x(), 0f, (float)v2.y());
@@ -158,12 +218,31 @@ public class RVODemoManager : MonoBehaviour
     private void OnEnable()
     {
         RVOClientNetwork.OnSpawnMessage += OnSpawnFromServer;
+        RVOClientNetwork.OnHello += OnHelloFromServer;
+        RVOClientNetwork.OnReset += OnResetFromServer;
     }
 
     private void OnDestroy()
     {
         RVOClientNetwork.OnDesync -= OnNetworkDesync;
         RVOClientNetwork.OnSpawnMessage -= OnSpawnFromServer;
+        RVOClientNetwork.OnHello -= OnHelloFromServer;
+        RVOClientNetwork.OnReset -= OnResetFromServer;
+    }
+
+    IEnumerator SpawnRole()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1.5f);
+            for (int i = 0; i < 10; i++)
+            {
+                SpawnOneAtSide(true);
+                SpawnOneAtSide(false);
+            }
+            
+        }
+      
     }
 
     private void OnNetworkDesync(int tick, int expectedHash, int newHash)
@@ -339,13 +418,16 @@ public class RVODemoManager : MonoBehaviour
 
         var sim = Simulator.Instance;
 
-        // 按 tick 粒度前进：每一个 tick 都执行一次 doStep -> spawn/skill -> 扣血 -> 出界
+        // 按 tick 粒度前进：每一个 tick 都执行一次 doStep -> 技能结算 -> spawn/skill -> 扣血 -> 出界
         for (int t = 0; t < ticks; t++)
         {
             // 即将要模拟的逻辑 tick 序号（从 1 开始累加），用于按服务器指定的 tick 消费 spawn/skill 队列
             int logicTick = RVOClientNetwork.TotalConsumedTicks + 1;
 
             sim.doStep();
+
+            // 先根据上一 tick 创建的技能 Agent 的邻居列表结算范围伤害
+            ProcessSkillAgents();
 
             // 先在当前 tick 上统一处理所有“应该在本 tick 及之前”生成的出生消息，确保多客户端在同一 tick 生成相同的 Agent 集合
             while (_pendingSpawnMessages.Count > 0 && _pendingSpawnMessages.Peek().tick <= logicTick)
@@ -354,7 +436,8 @@ public class RVODemoManager : MonoBehaviour
                 SpawnFromServer(spawnMsg);
             }
 
-            // 再在当前 tick 上统一处理所有“应该在本 tick 及之前”生效的技能消息
+            // 再在当前 tick 上统一处理所有“应该在本 tick 及之前”生效的技能消息：
+            // 这里只负责在技能中心创建一个隐形 RVO Agent，真正的伤害在下一 tick 通过邻居列表结算
             while (_pendingSkillMessages.Count > 0 && _pendingSkillMessages.Peek().tick <= logicTick)
             {
                 var skillMsg = _pendingSkillMessages.Dequeue();
@@ -598,40 +681,126 @@ public class RVODemoManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 在一个圆形范围内（近似）秒杀所有单位（不分敌我），用于技能效果。
+    /// 技能入口：在技能中心创建一个隐形的 RVO Agent，用其邻居列表在下一 tick 结算范围伤害。
     /// 由 RVOSkillController 在收到服务器广播的 skill 消息时调用，确保多端一致。
     /// </summary>
     public void ExecuteSkillKillInCircle(Vector3 center, float radius)
     {
         var sim = Simulator.Instance;
 
-        // 使用定点数做圆形范围判断，减少多客户端之间的边缘差异
+        // 技能中心的定点坐标（RVO 使用 XZ 平面，对应 LVector2(x,z)）
         LVector2 centerFixed = new LVector2(ToLFloat(center.x), ToLFloat(center.z));
-        LFloat radiusFixed = ToLFloat(radius);
-        LFloat radiusSqrFixed = radiusFixed * radiusFixed;
 
-        for (int i = _activeAgents.Count - 1; i >= 0; i--)
+        // 技能影响半径（定点），用于后续范围判定
+        LFloat radiusFixed = ToLFloat(radius);
+
+        // 创建一个隐形的技能 Agent：
+        // - 速度为 0
+        // - 半径设为 0（只用来当“探测点”）
+        // - maxNeighbors / timeHorizon 等复用默认的战斗配置
+        int skillAgentId = sim.addAgent(
+            centerFixed,
+            radiusFixed,
+            rvoMaxNeighbors,
+            rvoTimeHorizon,
+            rvoTimeHorizonObst,
+            LFloat.zero,
+            LFloat.zero,
+            new LVector2(LFloat.zero, LFloat.zero));
+
+        if (skillAgentId >= 0)
         {
-            var info = _activeAgents[i];
-            if (!sim.getHasAgent(info.agentId))
-            {
-                ReturnToPool(info);
-                _activeAgents.RemoveAt(i);
+            _skillAgentIds.Add(skillAgentId);
+            _skillAgentRadii.Add(radiusFixed);
+        }
+    }
+
+    /// <summary>
+    /// 利用上一 tick 创建的技能 Agent 的邻居列表，在当前 tick 结算范围伤害。
+    /// </summary>
+    private void ProcessSkillAgents()
+    {
+        if (_skillAgentIds.Count == 0)
+            return;
+
+        var sim = Simulator.Instance;
+
+        // 构建 agentId -> AgentInfo 映射，便于通过邻居 id 找到对应对象
+        var agentInfoMap = new Dictionary<int, AgentInfo>(_activeAgents.Count);
+        for (int k = 0; k < _activeAgents.Count; k++)
+        {
+            var info = _activeAgents[k];
+            agentInfoMap[info.agentId] = info;
+        }
+
+        // 使用 HashSet 避免同一个单位被多个技能 Agent 或多次邻居命中重复处理
+        var killedBySkill = new HashSet<int>();
+
+        for (int i = 0; i < _skillAgentIds.Count; i++)
+        {
+            int skillId = _skillAgentIds[i];
+            if (!sim.getHasAgent(skillId))
                 continue;
+
+            // 基于技能 Agent 的位置和配置的半径，直接用定点距离做一次范围检测，避免依赖 RVO 内部的邻居缓存实现细节。
+            LVector2 center = sim.getAgentPosition(skillId);
+            LFloat radius = _skillAgentRadii[i];
+            LFloat radiusSqr = radius * radius;
+
+            int hitCount = 0;
+            for (int k = 0; k < _activeAgents.Count; k++)
+            {
+                var info = _activeAgents[k];
+                if (!sim.getHasAgent(info.agentId))
+                    continue;
+
+                LVector2 pos = sim.getAgentPosition(info.agentId);
+                LVector2 diff = pos - center;
+                LFloat distSqr = diff.x() * diff.x() + diff.y() * diff.y();
+                if (distSqr <= radiusSqr)
+                {
+                    hitCount++;
+                    killedBySkill.Add(info.agentId);
+                }
             }
 
-            LVector2 pos2 = sim.getAgentPosition(info.agentId);
-            LVector2 diff = pos2 - centerFixed;
-            LFloat distSqr = diff.x() * diff.x() + diff.y() * diff.y();
+            Debug.LogWarning($"[SkillDebug] Tick={RVOClientNetwork.TotalConsumedTicks + 1}, SkillAgentId={skillId}, NeighborCount={hitCount}");
+        }
 
-            if (distSqr <= radiusSqrFixed)
+        if (killedBySkill.Count > 0)
+        {
+            // 实际删除命中的单位（不分敌我）
+            for (int i = _activeAgents.Count - 1; i >= 0; i--)
             {
-                // 命中技能范围，直接移除 agent 和对应 GameObject
+                var info = _activeAgents[i];
+                if (!killedBySkill.Contains(info.agentId))
+                    continue;
+
+                if (!sim.getHasAgent(info.agentId))
+                {
+                    ReturnToPool(info);
+                    _activeAgents.RemoveAt(i);
+                    continue;
+                }
+
                 sim.delAgent(info.agentId);
                 ReturnToPool(info);
                 _activeAgents.RemoveAt(i);
             }
         }
+
+        // 所有技能 Agent 只用一帧，结算完立刻删除
+        for (int i = 0; i < _skillAgentIds.Count; i++)
+        {
+            int skillId = _skillAgentIds[i];
+            if (sim.getHasAgent(skillId))
+            {
+                sim.delAgent(skillId);
+            }
+        }
+
+        _skillAgentIds.Clear();
+        _skillAgentRadii.Clear();
     }
 
     // 基于当前所有存活 Agent 的 id、hp、阵营和定点坐标计算一个简单 hash，用于对比多端状态

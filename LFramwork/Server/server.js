@@ -20,6 +20,10 @@ let running = false;
 let lastTickTime = Date.now();
 let tickCount = 0;
 
+// Simple incremental user id assignment, used by clients to know
+// which connection was the first one.
+let nextUserId = 1;
+
 // Track per-tick state hashes reported by clients to detect desync.
 // stateHashByTick[tick] = first hash value seen for that tick.
 const stateHashByTick = new Map();
@@ -88,8 +92,19 @@ function handleCommand(ws, cmdLine) {
 
   switch (cmd) {
     case 'start':
+      // Start a new simulation run from tick 0.
+      // This avoids the situation where the server has accumulated a very large
+      // tickCount before Unity connects, which would otherwise cause newly
+      // scheduled spawn/skill messages (tick = tickCount + 1) to be applied
+      // only after the client has replayed a long backlog of ticks.
       running = true;
-      ws.send(JSON.stringify({ type: 'info', message: 'simulation started' }));
+      tickCount = 0;
+      lastTickTime = Date.now();
+      stateHashByTick.clear();
+      ws.send(JSON.stringify({ type: 'info', message: 'simulation started (tickCount reset to 0)' }));
+
+      // 通知所有客户端重置本地仿真状态，从完全一致的初始状态重新开始。
+      broadcast({ type: 'reset' });
       break;
     case 'resume':
       running = true;
@@ -131,7 +146,9 @@ function handleCommand(ws, cmdLine) {
 }
 
 wss.on('connection', (ws) => {
-  console.log('[RVO-Server] client connected');
+  // Assign a unique userId to this connection.
+  ws.userId = nextUserId++;
+  console.log(`[RVO-Server] client connected, userId=${ws.userId}`);
 
   ws.on('message', (data) => {
     const text = data.toString();
@@ -196,7 +213,7 @@ wss.on('connection', (ws) => {
     console.log('[RVO-Server] client disconnected');
   });
 
-  ws.send(JSON.stringify({ type: 'hello', message: 'connected to RVO control server' }));
+  ws.send(JSON.stringify({ type: 'hello', userId: ws.userId, message: 'connected to RVO control server' }));
 });
 
 // Simple tick loop, broadcasting tick events according to tickRate

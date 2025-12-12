@@ -23,10 +23,21 @@ public class RVOClientNetwork : MonoBehaviour
 
     public static RVOClientNetwork Instance;
 
+    // 服务器为当前连接分配的用户 Id（第一个连接的一般是 1）。
+    public static int LocalUserId;
+
     [Serializable]
     private class BaseMessage
     {
         public string type;
+    }
+
+    [Serializable]
+    private class HelloMessage
+    {
+        public string type;   // "hello"
+        public int userId;    // 服务器分配给本连接的用户 Id
+        public string message;
     }
 
     [Serializable]
@@ -78,6 +89,8 @@ public class RVOClientNetwork : MonoBehaviour
     public static event Action<SpawnMessage> OnSpawnMessage;
     public static event Action<SkillMessage> OnSkillMessage;
     public static event Action<int, int, int> OnDesync; // tick, expectedHash, newHash
+    public static event Action<int> OnHello; // userId
+    public static event Action OnReset;      // 服务器通知重置本地仿真
 
     private void Awake()
     {
@@ -130,6 +143,27 @@ public class RVOClientNetwork : MonoBehaviour
                         {
                             Interlocked.Add(ref _pendingTicks, tickMsg.ticks);
                             TotalServerTickCount = tickMsg.tickCount;
+                        }
+                    }
+                    else if (baseMsg.type == "hello")
+                    {
+                        var helloMsg = JsonUtility.FromJson<HelloMessage>(e.Data);
+                        if (helloMsg != null)
+                        {
+                            LocalUserId = helloMsg.userId;
+                            Debug.Log($"[RVOClientNetwork] Hello from server, userId={LocalUserId}");
+                            if (OnHello != null)
+                            {
+                                OnHello(LocalUserId);
+                            }
+                        }
+                    }
+                    else if (baseMsg.type == "reset")
+                    {
+                        // 服务器要求所有客户端重置本地仿真状态
+                        if (OnReset != null)
+                        {
+                            OnReset();
                         }
                     }
                     else if (baseMsg.type == "spawn")
