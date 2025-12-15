@@ -1,2 +1,6 @@
 LFramwork/Library/
-LFramwork/
+LFramwork/Temp/
+LFramwork/Logs/
+LFramwork/obj/
+.idea
+tips.txt
