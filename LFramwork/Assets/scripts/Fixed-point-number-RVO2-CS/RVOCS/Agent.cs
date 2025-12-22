@@ -36,6 +36,16 @@ using System.Collections.Generic;
 
 namespace RVO
 {
+    /// <summary>
+    /// 控制 Agent 在避让逻辑中的参与方式。
+    /// </summary>
+    public enum AgentAvoidType
+    {
+        Normal = 0,        // 正常参与避让（默认行为）
+        NoAvoidOthers = 1, // 不主动将其他 Agent 视为邻居（别人仍然可以避让它）
+        Invisible = 2      // 在邻居计算中完全被忽略（别人也不会避让它）
+    }
+
     /**
      * <summary>Defines an agent in the simulation.</summary>
      */
@@ -55,6 +65,9 @@ namespace RVO
         internal LFloat timeHorizon_ = 0;
         internal LFloat timeHorizonObst_ =0 ;
         internal bool needDelete_ = false;
+
+        // 该 Agent 在避让计算中的参与类型
+        internal AgentAvoidType avoidType_ = AgentAvoidType.Normal;
 
         private LVector2 newVelocity_;
         private readonly List<Line> projLines = new List<Line>();
@@ -470,31 +483,45 @@ namespace RVO
          */
         internal void insertAgentNeighbor(Agent agent, ref LFloat rangeSq)
         {
-            if (this != agent)
+            if (this == agent)
             {
-                LFloat distSq = RVOMath.absSq(position_ - agent.position_);
+                return;
+            }
 
-                if (distSq < rangeSq)
+            // 如果自身被设置为不主动避让其他 Agent，则不记录任何邻居
+            if (avoidType_ == AgentAvoidType.NoAvoidOthers)
+            {
+                return;
+            }
+
+            // 如果对方在避让中完全不可见，则忽略它
+            if (agent.avoidType_ == AgentAvoidType.Invisible)
+            {
+                return;
+            }
+
+            LFloat distSq = RVOMath.absSq(position_ - agent.position_);
+
+            if (distSq < rangeSq)
+            {
+                if (agentNeighbors_.Count < maxNeighbors_)
                 {
-                    if (agentNeighbors_.Count < maxNeighbors_)
-                    {
-                        agentNeighbors_.Add(new KeyValuePair<LFloat, Agent>(distSq, agent));
-                    }
+                    agentNeighbors_.Add(new KeyValuePair<LFloat, Agent>(distSq, agent));
+                }
 
-                    int i = agentNeighbors_.Count - 1;
+                int i = agentNeighbors_.Count - 1;
 
-                    while (i != 0 && distSq < agentNeighbors_[i - 1].Key)
-                    {
-                        agentNeighbors_[i] = agentNeighbors_[i - 1];
-                        --i;
-                    }
+                while (i != 0 && distSq < agentNeighbors_[i - 1].Key)
+                {
+                    agentNeighbors_[i] = agentNeighbors_[i - 1];
+                    --i;
+                }
 
-                    agentNeighbors_[i] = new KeyValuePair<LFloat, Agent>(distSq, agent);
+                agentNeighbors_[i] = new KeyValuePair<LFloat, Agent>(distSq, agent);
 
-                    if (agentNeighbors_.Count == maxNeighbors_)
-                    {
-                        rangeSq = agentNeighbors_[agentNeighbors_.Count - 1].Key;
-                    }
+                if (agentNeighbors_.Count == maxNeighbors_)
+                {
+                    rangeSq = agentNeighbors_[agentNeighbors_.Count - 1].Key;
                 }
             }
         }

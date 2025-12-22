@@ -862,6 +862,16 @@ namespace RVO
             agents_[agentNo2indexDict_[agentNo]].maxNeighbors_ = maxNeighbors;
         }
 
+        /// <summary>
+        /// 设置指定 Agent 在避让逻辑中的参与类型。
+        /// </summary>
+        /// <param name="agentNo">要修改的 Agent 编号。</param>
+        /// <param name="type">避让类型。</param>
+        public void setAgentAvoidType(int agentNo, AgentAvoidType type)
+        {
+            agents_[agentNo2indexDict_[agentNo]].avoidType_ = type;
+        }
+
         /**
          * <summary>Sets the maximum speed of a specified agent.</summary>
          *

@@ -28,6 +28,18 @@ let nextUserId = 1;
 // stateHashByTick[tick] = first hash value seen for that tick.
 const stateHashByTick = new Map();
 
+// Track latest input direction for each player: playerId -> { dx, dz } (fixed-point ints)
+const playerInputs = new Map();
+
+function broadcast(obj) {
+  const msg = JSON.stringify(obj);
+  for (const client of wss.clients) {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(msg);
+    }
+  }
+}
+
 function printLocalIPs() {
   const nets = os.networkInterfaces();
   const results = [];
@@ -76,15 +88,6 @@ process.stdin.on('data', (chunk) => {
 
   handleCommand(consoleClient, line);
 });
-
-function broadcast(obj) {
-  const msg = JSON.stringify(obj);
-  for (const client of wss.clients) {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send(msg);
-    }
-  }
-}
 
 function handleCommand(ws, cmdLine) {
   const parts = cmdLine.trim().split(/\s+/);
@@ -150,22 +153,59 @@ wss.on('connection', (ws) => {
   ws.userId = nextUserId++;
   console.log(`[RVO-Server] client connected, userId=${ws.userId}`);
 
+  // Send hello immediately so the client knows its LocalUserId before other messages.
+  ws.send(JSON.stringify({ type: 'hello', userId: ws.userId, message: 'connected to RVO control server' }));
+
+  // let dx="1000";
+  // let dy="1000";
+  // playerInputs.set(ws.userId, {dx,dy});
+  // Delay playerSpawn broadcast to ensure client processes hello first
+  setTimeout(() => {
+    // Broadcast player spawn to all clients，出生点交给客户端用定点数来还原和模拟。
+    const playerId = ws.userId;
+   
+    broadcast({
+      type: 'playerSpawn',
+      playerId,
+      x: 0,
+      z: 0,
+    });
+  }, 100); // 100ms delay to ensure hello is processed
+
   ws.on('message', (data) => {
     const text = data.toString();
 
-    // 先尝试按 JSON 解析，用于处理 Unity 发送的 spawn 消息
+    // 先尝试按 JSON 解析，用于处理 Unity 发送的 spawn/skill/bullet/playerInput/playerState 消息
     try {
+      if(text!=null&&text!=undefined&&text.length>2) {
+       // console.log("text");
+       // console.log(text);
+      }
+
       const obj = JSON.parse(text);
-      if (obj && (obj.type === 'spawn' || obj.type === 'skill')) {
-        // 为 spawn / skill 消息附加一个目标 tick，确保所有客户端在同一逻辑 tick 上执行
+      if (obj && (obj.type === 'spawn' || obj.type === 'skill' || obj.type === 'bullet')) {
+        // 为 spawn / skill / bullet 消息附加一个目标 tick，确保所有客户端在同一逻辑 tick 上执行
         // 使用当前 tickCount + 1，表示“从下一 tick 起生效”。
         const scheduled = {
           ...obj,
           tick: tickCount + 1,
         };
-
+        //console.log("=====");
         // 直接广播给所有客户端，由各客户端在指定 tick 上统一生成 Agent 或释放技能
         broadcast(scheduled);
+        return;
+      }
+
+      if (obj && obj.type === 'playerInput') {
+        const { playerId, dx, dz } = obj;
+        //console.log('[RVO-Server] playerInput received: playerId=%d, ws.userId=%d, dx=%d, dz=%d', 
+                  // playerId, ws.userId, dx, dz);
+        
+        // 使用 ws.userId 作为真正的 key，忽略客户端发来的 playerId
+        if (Number.isInteger(dx) && Number.isInteger(dz)) {
+          playerInputs.set(ws.userId, { dx, dz });
+         // console.log('[RVO-Server] Stored input for userId=%d', ws.userId);
+        }
         return;
       }
 
@@ -211,9 +251,9 @@ wss.on('connection', (ws) => {
 
   ws.on('close', () => {
     console.log('[RVO-Server] client disconnected');
+    // Optionally remove its input; for simplicity we just delete from playerInputs map.
+    playerInputs.delete(ws.userId);
   });
-
-  ws.send(JSON.stringify({ type: 'hello', userId: ws.userId, message: 'connected to RVO control server' }));
 });
 
 // Simple tick loop, broadcasting tick events according to tickRate
@@ -234,6 +274,17 @@ setInterval(() => {
       ticks: ticksToRun,
       tickRate,
       tickCount,
+    });
+
+    // Broadcast latest input directions from all players (fixed-point) each tick.
+    broadcast({
+      type: 'playerInputSnapshot',
+      tick: tickCount,
+      players: Array.from(playerInputs.entries()).map(([playerId, v]) => ({
+        playerId,
+        dx: v.dx,
+        dz: v.dz,
+      })),
     });
   }
 }, 5);
